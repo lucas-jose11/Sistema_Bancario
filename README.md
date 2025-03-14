@@ -31,19 +31,19 @@ Requisitos do Exercício
               
       2.    Criar duas classes filhas que herdam de ContaBancaria e possuem regras próprias:
       
-          •       ContaCorrente: cobra uma taxa fixa de R$ 5,00 a cada saque.
+              •   ContaCorrente: cobra uma taxa fixa de R$ 5,00 a cada saque.
           
-          •       ContaPoupanca: possui um bônus de 0.5% sobre cada depósito.
+              •   ContaPoupanca: possui um bônus de 0.5% sobre cada depósito.
           
       3.    Encapsular os atributos (private) e utilizar Getters e Setters para acessar/modificar titular e saldo.
       
       4.    Criar um programa principal (Main) que:
       
-          • Instancie pelo menos uma ContaCorrente e uma ContaPoupanca.
+             •   Instancie pelo menos uma ContaCorrente e uma ContaPoupanca.
           
-          • Faça depósitos e saques em ambas as contas.
+             •   Faça depósitos e saques em ambas as contas.
           
-          • Exiba os saldos após cada operação.
+             •   Exiba os saldos após cada operação.
           
 
 Exemplo de Código (Estrutura Simplificada)
