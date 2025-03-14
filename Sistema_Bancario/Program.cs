@@ -1,10 +1,10 @@
 ﻿namespace Sistema_Bancario
 {
-    internal class Program
+    public class Program
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello, World!");
+            Console.WriteLine("Atividade 2");
         }
     }
 }
