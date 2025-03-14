@@ -31,7 +31,7 @@ Requisitos do Exercício
               
       2.    Criar duas classes filhas que herdam de ContaBancaria e possuem regras próprias:
       
-          • ContaCorrente: cobra uma taxa fixa de R$ 5,00 a cada saque.
+          •       ContaCorrente: cobra uma taxa fixa de R$ 5,00 a cada saque.
           
           •       ContaPoupanca: possui um bônus de 0.5% sobre cada depósito.
           
