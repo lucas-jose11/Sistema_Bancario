@@ -6,9 +6,11 @@ using System.Threading.Tasks;
 
 namespace Sistema_Bancario
 {
+
+    //herda da ContaBancaria
     public class ContaCorrente
     {
-        //cobra uma taxa fixa de R$5,00 a cada saque
+        //cobrar uma taxa fixa de R$5,00 a cada saque
 
     }
 }

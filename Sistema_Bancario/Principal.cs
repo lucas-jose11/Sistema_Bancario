@@ -3,7 +3,7 @@ namespace Sistema_Bancario
 {
     public class Principal
     {
-        static void Main(string[] args)
+        static void Main(string[] args) //melhroar a página inicial
         {
             Console.WriteLine("Bem-vindo(a) ao 'Lucas Bank Regional of Blumenau'!.");
             Console.WriteLine("Gostaria de fazer login para entrar em sua conta? S/N");
@@ -11,7 +11,12 @@ namespace Sistema_Bancario
 
             while (respostaInicial == "S")
             {
-                Organizacao.LoginSenha();
+                long numeroConta = Organizacao.PaginaConfirmacao();
+
+                if (numeroConta != 0) 
+                    Organizacao.LoginSenha();
+
+
             }
 
             Console.WriteLine("====================================");

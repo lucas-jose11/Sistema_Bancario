@@ -9,16 +9,22 @@ namespace Sistema_Bancario
     public class ContaBancaria
     {
 
-        private int _numeroConta;
+        private long _numeroConta;
 
         private string _titular;
 
         private double _saldo;
 
+        //quais mais atributos?
 
-        public ContaBancaria(int numeroConta, string titular, double saldoInicial)
+
+        public void DefinirNumeroConta()
         {
-            _numeroConta = numeroConta;
+            _numeroConta = Organizacao.PaginaConfirmacao();
+        }
+
+        public ContaBancaria( string titular, double saldoInicial)
+        {
             _titular = titular;
             _saldo = saldoInicial;
         }
@@ -37,5 +43,6 @@ namespace Sistema_Bancario
         {
             //exibe o saldo atual
         }
+
     }
 }
