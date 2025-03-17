@@ -23,10 +23,15 @@ namespace Sistema_Bancario
             _numeroConta = Organizacao.PaginaConfirmacao();
         }
 
-        public ContaBancaria( string titular, double saldoInicial)
+        public ContaBancaria(string titular, double saldoInicial)
         {
             _titular = titular;
             _saldo = saldoInicial;
+        }
+
+        public string NomeConta()
+        {
+            return _titular;
         }
 
         public void Depositar(double valorParaDepositar)

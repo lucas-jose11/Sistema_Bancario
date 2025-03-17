@@ -52,7 +52,7 @@
               "RelativeDocumentMoniker": "Sistema_Bancario\\Principal.cs",
               "ToolTip": "C:\\Users\\lucas\\source\\repos\\lucas-jose11\\Sistema_Bancario\\Sistema_Bancario\\Principal.cs",
               "RelativeToolTip": "Sistema_Bancario\\Principal.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAUAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-14T17:41:51.381Z",
               "EditorCaption": ""
@@ -65,7 +65,7 @@
               "RelativeDocumentMoniker": "Sistema_Bancario\\Organizacao.cs",
               "ToolTip": "C:\\Users\\lucas\\source\\repos\\lucas-jose11\\Sistema_Bancario\\Sistema_Bancario\\Organizacao.cs",
               "RelativeToolTip": "Sistema_Bancario\\Organizacao.cs",
-              "ViewState": "AgIAABAAAAAAAAAAAAA1wBYAAAATAAAAAAAAAA==",
+              "ViewState": "AgIAAIwAAAAAAAAAAAAwwJgAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-14T18:56:34.949Z",
               "EditorCaption": ""
@@ -78,7 +78,7 @@
               "RelativeDocumentMoniker": "Sistema_Bancario\\ContaBancaria.cs",
               "ToolTip": "C:\\Users\\lucas\\source\\repos\\lucas-jose11\\Sistema_Bancario\\Sistema_Bancario\\ContaBancaria.cs",
               "RelativeToolTip": "Sistema_Bancario\\ContaBancaria.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-14T17:44:08.091Z",
               "EditorCaption": ""
@@ -93,7 +93,8 @@
               "RelativeToolTip": "Sistema_Bancario\\ContaCorrente.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAcAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-14T17:44:27.422Z"
+              "WhenOpened": "2025-03-14T17:44:27.422Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -105,7 +106,8 @@
               "RelativeToolTip": "Sistema_Bancario\\ContaPoupan\u00E7a.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-14T17:44:43.309Z"
+              "WhenOpened": "2025-03-14T17:44:43.309Z",
+              "EditorCaption": ""
             }
           ]
         }

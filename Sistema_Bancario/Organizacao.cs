@@ -10,10 +10,7 @@ namespace Sistema_Bancario
 {
     public class Organizacao
     {
-
         //atributos?
-
-
         public static long PaginaConfirmacao()
         {
             long numeroConta = 0;
@@ -23,9 +20,9 @@ namespace Sistema_Bancario
                 try
                 {
 
-                    Console.WriteLine("================================================");
-                    Console.WriteLine("AVISO: CONFIRMAÇÃO DE NÚEMRO DA CONTA NECESSÁRIO");
-                    Console.WriteLine("================================================");
+                    Console.WriteLine("=====================================================");
+                    Console.WriteLine("AVISO: CONFIRMAÇÃO NECESSÁRIA SOBRE O NÚMERO DA CONTA");
+                    Console.WriteLine("=====================================================");
                     Console.WriteLine("");
                     Console.WriteLine("++++++Checagem de 2 etapas, é necessário que você confirme seu número da conta para avançar++++++");
                     Console.Write("Por favor, escreva seu número de conta:");
@@ -89,6 +86,7 @@ namespace Sistema_Bancario
                     //while
 
                     ContaBancaria dadosTitular = new ContaBancaria(nomeTitular, 10000);
+
                     loginEfetuado = true;
                     Console.Clear();
                 }
@@ -131,6 +129,8 @@ namespace Sistema_Bancario
                             break;
 
                         case 3:
+                            Console.Clear();
+                            //DetalhesMinhaConta();
                             break;
 
                         case 4:
@@ -150,10 +150,11 @@ namespace Sistema_Bancario
             }
         }
 
-        public static void DetalhesMinhaConta()
+        public static void DetalhesMinhaConta(ContaBancaria conta)
         {
+            
             Console.WriteLine("==========DETALHES DA MINHA CONTA==========");
-            Console.WriteLine("\nNome do Titular: {}");
+            Console.WriteLine($"\nNome do Titular: {conta.NomeConta()}");
             Console.WriteLine("Número da conta: {}"); //fazer ela só se visivel se clicar?
             Console.WriteLine("Data de criação da conta: 14/03/2025");
             Console.WriteLine("===========================================");
