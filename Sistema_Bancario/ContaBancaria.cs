@@ -20,19 +20,24 @@ namespace Sistema_Bancario
             get { return _numeroConta; }
             set
             {
-                if (!(value.ToString().Length == 8))
+                if (value.ToString().Length == 8)
                     _numeroConta = value;
                 else
-                    NumeroConta();
+                    throw new Exception("Minimo 8 caracteres");
             }
         }
-
-        public int 
+      
 
         public string Titular
         {
             get { return _titular; }
-            set { _titular = value; }
+            set
+            {
+                if (value.ToString().Length == 8)
+                    _numeroConta = value;
+                else
+                    throw new Exception("Minimo 8 caracteres");
+            }
         }
 
         public double Saldo
@@ -41,13 +46,11 @@ namespace Sistema_Bancario
             set { _saldo = value; }
         }
 
-
-
-
-        public ContaBancaria(string titular, double saldoInicial)
+        public ContaBancaria(int numeroConta, string titular, double saldoInicial)
         {
-            _titular = titular;
-            _saldo = saldoInicial;
+            NumeroConta = numeroConta;
+            Titular = titular;
+            Saldo = saldoInicial;
         }
 
         public string NomeConta()

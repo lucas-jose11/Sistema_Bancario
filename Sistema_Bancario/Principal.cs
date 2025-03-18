@@ -5,7 +5,29 @@ namespace Sistema_Bancario
     {
         static void Main(string[] args) //melhroar a página inicial
         {
+            CriarConta();
             
+
+
+
+        }
+
+        static ContaBancaria CriarConta()
+        {
+            try
+            {
+                Console.WriteLine("Digite o numero da conta");
+                int numero = int.Parse(Console.ReadLine());
+                ContaBancaria conta_1 = new ContaBancaria(numero, "reer", 90.0);
+                Console.WriteLine(conta_1.NumeroConta);
+                return conta_1;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                return CriarConta();
+            }
+           
         }
     }
 }
