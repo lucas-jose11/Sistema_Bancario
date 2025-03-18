@@ -157,8 +157,6 @@ namespace Sistema_Bancario
 
         }
 
-        //criar conta corrente/poupcança?
-
         public void MostrarContasCorrentes(List<ContaCorrente> contasCorrentes)
         {
             Console.WriteLine("CONTAS CORRENTES:");
@@ -181,7 +179,6 @@ namespace Sistema_Bancario
                 Console.WriteLine("===============================================");
             }
         }
-
 
         public void DetalhesdaMinhaConta()
         {

@@ -31,6 +31,7 @@ namespace Sistema_Bancario
 
         }
 
+
         static int NumeroInteiro()
         {
             Console.WriteLine("=================\nDigite uma opção válida (0 a 6):");
