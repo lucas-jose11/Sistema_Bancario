@@ -5,26 +5,28 @@ namespace Sistema_Bancario
     {
         static void Main(string[] args) //melhroar a página inicial
         {
-            Console.WriteLine("Bem-vindo ao Banco Regional of Blumenau.");
 
-            Console.WriteLine("O que deseja fazer?");
-            Console.WriteLine("[1] - Criar conta corrente");
-            Console.WriteLine("[2] - Criar conta poupança");
-            Console.WriteLine("[3] - Ver contas cadastradas do tipo corrente");
-            Console.WriteLine("[4] - Ver contas cadastradas do tipo Poupança");
-            Console.WriteLine("[5] - Acessar conta corrente");
-            Console.WriteLine("[6] - Acessar conta poupança");
-            Console.WriteLine("[0] - SAIR");
-
-            NumeroInteiro();
-
+            Organizacao token = new Organizacao(); // precisa instanciar nesse caso
             
-            Organizacao token = new Organizacao();
-            token.MenuBanco(NumeroInteiro());
+            int aux = -1;
+            while (aux != 0)
+            {
+                Console.WriteLine("Bem-vindo ao Banco Regional of Blumenau.");
 
-            
-            
+                Console.WriteLine("O que deseja fazer?");
+                Console.WriteLine("[1] - Criar conta corrente");
+                Console.WriteLine("[2] - Criar conta poupança");
+                Console.WriteLine("[3] - Ver contas cadastradas do tipo corrente");
+                Console.WriteLine("[4] - Ver contas cadastradas do tipo Poupança");
+                Console.WriteLine("[5] - Acessar conta corrente");
+                Console.WriteLine("[6] - Acessar conta poupança");
+                Console.WriteLine("[0] - SAIR");
 
+                aux = NumeroInteiro();
+
+                token.MenuBanco(aux);
+
+            } //se digitar 0 "vai 2 vezes" até sair do programa, arrumar
 
 
         }

@@ -16,19 +16,21 @@ namespace Sistema_Bancario
         private List<ContaCorrente> listaDeContasCorrente = new List<ContaCorrente>
         {
             new ContaCorrente(1, "Wellington", 48174938, 100.50),
-            new ContaCorrente(2, "Antônio", 02947281, 400)
+            new ContaCorrente(2, "Antônio", 22947281, 400) //unico problema : n aceita começar com 0
 
         };
 
         private List<ContaPoupanca> listaDeContasPoupanca = new List<ContaPoupanca>
         {
-            new ContaPoupanca(1, "Melo", 38163927, 20.32),
+            new ContaPoupanca(1, "Melo", 38163927, 250.32),
             new ContaPoupanca(2, "Antunes", 38163928, 500)
         };
 
 
         public void MenuBanco(int op)
         {
+            //Console.WriteLine("Bem-vindo ao Banco Regional of Blumenau.");
+
             //Console.WriteLine("O que deseja fazer?");
             //Console.WriteLine("[1] - Criar conta corrente");
             //Console.WriteLine("[2] - Criar conta poupança");
@@ -38,33 +40,45 @@ namespace Sistema_Bancario
             //Console.WriteLine("[6] - Acessar conta poupança");
             //Console.WriteLine("[0] - SAIR");
 
+            Console.Clear();
 
             switch (op)
             {
                 case 1:
-                    Console.Clear();
                     CriarContaCorrente();
+                    Console.Clear();
                     break;
 
                 case 2:
-                    Console.Clear();
                     CriarContaPoupanca();
+                    Console.Clear();
                     break;
 
                 case 3:
+                    MostrarContasCorrentes(listaDeContasCorrente);
+                    Console.WriteLine("Pressione ENTER para voltar ao Menu.");
+                    Console.ReadLine();
+                    Console.Clear();
                     break;
 
                 case 4:
+                    MostrarContasPoupancas(listaDeContasPoupanca); 
+                    Console.WriteLine("Pressione ENTER para voltar ao Menu.");
+                    Console.ReadLine();
+                    Console.Clear();
                     break;
 
                 case 5:
+
+                    Console.Clear();
                     break;
 
                 case 6:
+
+                    Console.Clear();
                     break;
 
                 case 0:
-                    Console.Clear();
                     Console.WriteLine("Tchau! Saindo...");
                     Thread.Sleep(1500);
                     break;
@@ -72,7 +86,7 @@ namespace Sistema_Bancario
             }
         }
 
-        public ContaCorrente CriarContaCorrente()
+        public void CriarContaCorrente()
         {
             try
             {
@@ -88,14 +102,13 @@ namespace Sistema_Bancario
 
                 int id = listaDeContasCorrente.Count + 1;
 
-                ContaCorrente conta_1 = new ContaCorrente(id, nome, numero, saldo);
+                ContaCorrente conta_nova = new ContaCorrente(id, nome, numero, saldo);
                 //Console.WriteLine(conta_1.NumeroConta);
 
                 // se fosse static tinha que : List<ContaBancaria> listaDeContas = new List<ContaBancaria>();
 
-                listaDeContasCorrente.Add(conta_1);
-                
-                return conta_1;
+                listaDeContasCorrente.Add(conta_nova);
+
             }
             catch (Exception e)
             {
@@ -104,12 +117,12 @@ namespace Sistema_Bancario
                 Console.WriteLine("Aperte ENTER para tentar de novo.");
                 Console.ReadLine();
                 Console.Clear();
-                return CriarContaCorrente();
+                CriarContaCorrente();
             }
 
         }
 
-        public ContaPoupanca CriarContaPoupanca()
+        public void CriarContaPoupanca()
         {
             try
             {
@@ -123,16 +136,14 @@ namespace Sistema_Bancario
                 Console.WriteLine("Quanto de saldo você tem? Use o modelo \"XX,XX\".");
                 double saldo = double.Parse(Console.ReadLine());
 
-                int id = listaDeContasPoupanca.Count + 1; 
+                int id = listaDeContasPoupanca.Count + 1;
 
-                ContaPoupanca conta_1 = new ContaPoupanca(id, nome, numero, saldo);
+                ContaPoupanca conta_nova = new ContaPoupanca(id, nome, numero, saldo);
                 //Console.WriteLine(conta_1.NumeroConta);
 
                 // se fosse static tinha que : List<ContaBancaria> listaDeContas = new List<ContaBancaria>();
 
-                listaDeContasPoupanca.Add(conta_1);
-
-                return conta_1;
+                listaDeContasPoupanca.Add(conta_nova);
             }
             catch (Exception e)
             {
@@ -141,7 +152,7 @@ namespace Sistema_Bancario
                 Console.WriteLine("Aperte ENTER para tentar de novo.");
                 Console.ReadLine();
                 Console.Clear();
-                return CriarContaPoupanca();
+                CriarContaPoupanca();
             }
 
         }
@@ -150,9 +161,10 @@ namespace Sistema_Bancario
 
         public void MostrarContasCorrentes(List<ContaCorrente> contasCorrentes)
         {
-            foreach (ContaCorrente conta in  contasCorrentes)
+            Console.WriteLine("CONTAS CORRENTES:");
+            Console.WriteLine("");
+            foreach (ContaCorrente conta in contasCorrentes)
             {
-                Console.WriteLine("===============================================");
                 Console.WriteLine($"{conta.Id} - conta corrente de {conta.Titular}");
                 Console.WriteLine("===============================================");
 
@@ -161,9 +173,10 @@ namespace Sistema_Bancario
 
         public void MostrarContasPoupancas(List<ContaPoupanca> contasPoupanca)
         {
+            Console.WriteLine("CONTAS POUPANÇAS:");
+            Console.WriteLine("");
             foreach (ContaPoupanca conta in contasPoupanca)
             {
-                Console.WriteLine("===============================================");
                 Console.WriteLine($"{conta.Id} - conta poupança de {conta.Titular}");
                 Console.WriteLine("===============================================");
             }
