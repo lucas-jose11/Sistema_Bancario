@@ -16,15 +16,28 @@ namespace Sistema_Bancario
         {
             try
             {
+                Console.WriteLine("=======CRIAÇÃO DE CONTA=======");
+                Console.WriteLine("Digite seu nome");
+                string nome = Console.ReadLine();
+
                 Console.WriteLine("Digite o numero da conta");
                 int numero = int.Parse(Console.ReadLine());
-                ContaBancaria conta_1 = new ContaBancaria(numero, "reer", 90.0);
-                Console.WriteLine(conta_1.NumeroConta);
+
+                Console.WriteLine("Quanto de saldo você tem? Use o modelo \"XX,XX\".");
+                double saldo = double.Parse(Console.ReadLine());
+
+                ContaBancaria conta_1 = new ContaBancaria(numero, nome, saldo);
+                //Console.WriteLine(conta_1.NumeroConta);
+                
                 return conta_1;
             }
             catch (Exception e)
             {
                 Console.WriteLine(e.Message);
+                Console.WriteLine("Criação de conta falhou, tentaremos de novo!");
+                Console.WriteLine("Aperte ENTER para tentar de novo.");
+                Console.ReadLine();
+                Console.Clear();
                 return CriarConta();
             }
            

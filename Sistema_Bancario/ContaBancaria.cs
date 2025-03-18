@@ -15,6 +15,19 @@ namespace Sistema_Bancario
 
         private double _saldo;
 
+
+        public string Titular
+        {
+            get { return _titular; }
+            set
+            {
+                if ( !(String.IsNullOrEmpty(value)) )
+                    _titular = value;
+                else
+                    throw new Exception("Campo do nome nulo.");
+            }
+        }
+
         public int NumeroConta
         {
             get { return _numeroConta; }
@@ -23,39 +36,27 @@ namespace Sistema_Bancario
                 if (value.ToString().Length == 8)
                     _numeroConta = value;
                 else
-                    throw new Exception("Minimo 8 caracteres");
-            }
-        }
-      
-
-        public string Titular
-        {
-            get { return _titular; }
-            set
-            {
-                if (value.ToString().Length == 8)
-                    _numeroConta = value;
-                else
-                    throw new Exception("Minimo 8 caracteres");
+                    throw new Exception("O número da conta deve conter 8 algarismos.");
             }
         }
 
         public double Saldo
         {
             get { return _saldo; }
-            set { _saldo = value; }
+            set
+            {
+                if (value < 0)
+                    _saldo = value;
+                else
+                    throw new Exception("Precisamos ter um mínimo de 100 reais para abrirmos sua conta!");
+            }
         }
 
-        public ContaBancaria(int numeroConta, string titular, double saldoInicial)
+        public ContaBancaria(string titular, int numeroConta, double saldoInicial)
         {
-            NumeroConta = numeroConta;
             Titular = titular;
+            NumeroConta = numeroConta;
             Saldo = saldoInicial;
-        }
-
-        public string NomeConta()
-        {
-            return _titular;
         }
 
         public void Depositar(double valorParaDepositar)
