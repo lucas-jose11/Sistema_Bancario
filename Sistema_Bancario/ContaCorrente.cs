@@ -24,14 +24,14 @@ namespace Sistema_Bancario
             set { _id = value; }
         }
 
-        public void TaxaDeSaque()
+        public void SaqueTaxado(double valorPraSacar)
         {
             //cobrar uma taxa fixa de R$5,00 a cada saque
+            Saldo -= valorPraSacar + 5;
+            Console.WriteLine("Foi cobrado uma taxa de R$5,00 para fazer esse saque em sua conta corrente.");
+            ExibirSaldo();
 
         }
-
-
-
 
     }
 }

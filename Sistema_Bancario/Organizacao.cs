@@ -69,12 +69,12 @@ namespace Sistema_Bancario
                     break;
 
                 case 5:
-
+                    //falta acessar as contas e poder fazer os métodos
                     Console.Clear();
                     break;
 
                 case 6:
-
+                    //falta acessar as contas e poder fazer os métodos
                     Console.Clear();
                     break;
 

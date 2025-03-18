@@ -61,17 +61,26 @@ namespace Sistema_Bancario
 
         public void Depositar(double valorParaDepositar)
         {
-            //saldo inicial += valorParaDepositar
+            _saldo += valorParaDepositar;
         }
 
         public void Sacar(double valorParaSacar)
         {
             //reduz o saldo, mas impede o saque se n houver saldo suficiente
+            if (valorParaSacar > _saldo)
+                Console.WriteLine("Impossível sacar pois o saldo disponível é menor do que a quantia que você quer sacar.");
+            else
+            {
+                _saldo -= valorParaSacar;
+                Console.WriteLine("Saque bem-sucedido!");
+                ExibirSaldo();
+            }
         }
 
         public void ExibirSaldo()
         {
             //exibe o saldo atual
+            Console.WriteLine($"Saldo atual em sua conta: R${_saldo}.");
         }
 
     }
