@@ -5,22 +5,7 @@ namespace Sistema_Bancario
     {
         static void Main(string[] args) //melhroar a página inicial
         {
-            Console.WriteLine("Bem-vindo(a) ao 'Lucas Bank Regional of Blumenau'!.");
-            Console.WriteLine("Gostaria de fazer login para entrar em sua conta? S/N");
-            string respostaInicial = Console.ReadLine();
-
-            while (respostaInicial == "S")
-            {
-                long numeroConta = Organizacao.PaginaConfirmacao();
-
-                if (numeroConta != 0) 
-                    Organizacao.LoginSenha();
-
-
-            }
-
-            Console.WriteLine("====================================");
-            Console.WriteLine("Tchau, tenha um bom dia!");
+            
         }
     }
 }

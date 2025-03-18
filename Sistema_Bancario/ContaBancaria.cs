@@ -9,19 +9,40 @@ namespace Sistema_Bancario
     public class ContaBancaria
     {
 
-        private long _numeroConta;
+        private int _numeroConta;
 
         private string _titular;
 
         private double _saldo;
 
-        //quais mais atributos?
-
-
-        public void DefinirNumeroConta()
+        public int NumeroConta
         {
-            _numeroConta = Organizacao.PaginaConfirmacao();
+            get { return _numeroConta; }
+            set
+            {
+                if (!(value.ToString().Length == 8))
+                    _numeroConta = value;
+                else
+                    NumeroConta();
+            }
         }
+
+        public int 
+
+        public string Titular
+        {
+            get { return _titular; }
+            set { _titular = value; }
+        }
+
+        public double Saldo
+        {
+            get { return _saldo; }
+            set { _saldo = value; }
+        }
+
+
+
 
         public ContaBancaria(string titular, double saldoInicial)
         {
