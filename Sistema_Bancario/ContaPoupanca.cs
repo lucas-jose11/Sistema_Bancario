@@ -6,14 +6,15 @@ using System.Threading.Tasks;
 
 namespace Sistema_Bancario
 {
+
     //herda da ContaBancaria
 
-    public class ContaCorrente : ContaBancaria // Herda de ContaBancaria
+    public class ContaPoupanca : ContaBancaria
     {
-        private int _id;
 
-        // Construtor
-        public ContaCorrente(int id, string titular, int numeroConta, double saldo) : base(titular, numeroConta, saldo) // Chama o construtor da classe pai
+        private int _id;
+        
+        public ContaPoupanca(int id, string titular, int numeroConta, double saldo) : base(titular, numeroConta, saldo) // Chama o construtor da classe pai
         {
             Id = id;
         }
@@ -24,14 +25,11 @@ namespace Sistema_Bancario
             set { _id = value; }
         }
 
-        public void TaxaDeSaque()
+        public void BonusDeDeposito()
         {
-            //cobrar uma taxa fixa de R$5,00 a cada saque
+            //possui um bônus de 0,5% para cada depósito
 
         }
-
-
-
 
     }
 }

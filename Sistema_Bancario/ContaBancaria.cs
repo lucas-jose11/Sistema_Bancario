@@ -48,7 +48,7 @@ namespace Sistema_Bancario
                 if (value < 0)
                     _saldo = value;
                 else
-                    throw new Exception("Precisamos ter um mínimo de 100 reais para abrirmos sua conta!");
+                    throw new Exception("Precisamos ter um mínimo de 100 reais para abrirmos sua conta!!");
             }
         }
 

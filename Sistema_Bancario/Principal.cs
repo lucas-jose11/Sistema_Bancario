@@ -5,42 +5,47 @@ namespace Sistema_Bancario
     {
         static void Main(string[] args) //melhroar a página inicial
         {
-            CriarConta();
+            Console.WriteLine("Bem-vindo ao Banco Regional of Blumenau.");
+
+            Console.WriteLine("O que deseja fazer?");
+            Console.WriteLine("[1] - Criar conta corrente");
+            Console.WriteLine("[2] - Criar conta poupança");
+            Console.WriteLine("[3] - Ver contas cadastradas do tipo corrente");
+            Console.WriteLine("[4] - Ver contas cadastradas do tipo Poupança");
+            Console.WriteLine("[5] - Acessar conta corrente");
+            Console.WriteLine("[6] - Acessar conta poupança");
+            Console.WriteLine("[0] - SAIR");
+
+            NumeroInteiro();
+
+            
+            Organizacao token = new Organizacao();
+            token.MenuBanco(NumeroInteiro());
+
+            
             
 
 
 
         }
 
-        static ContaBancaria CriarConta()
+        static int NumeroInteiro()
         {
-            try
+            Console.WriteLine("=================\nDigite uma opção válida (0 a 6):");
+            string entrada = Console.ReadLine();
+
+            // Verifica se a entrada é um número válido e está no intervalo 0-6
+            if (int.TryParse(entrada, out int numero) && numero > -1 && numero < 7)
             {
-                Console.WriteLine("=======CRIAÇÃO DE CONTA=======");
-                Console.WriteLine("Digite seu nome");
-                string nome = Console.ReadLine();
-
-                Console.WriteLine("Digite o numero da conta");
-                int numero = int.Parse(Console.ReadLine());
-
-                Console.WriteLine("Quanto de saldo você tem? Use o modelo \"XX,XX\".");
-                double saldo = double.Parse(Console.ReadLine());
-
-                ContaBancaria conta_1 = new ContaBancaria(numero, nome, saldo);
-                //Console.WriteLine(conta_1.NumeroConta);
-                
-                return conta_1;
+                return numero; // Retorna o número válido
             }
-            catch (Exception e)
+            else
             {
-                Console.WriteLine(e.Message);
-                Console.WriteLine("Criação de conta falhou, tentaremos de novo!");
-                Console.WriteLine("Aperte ENTER para tentar de novo.");
-                Console.ReadLine();
-                Console.Clear();
-                return CriarConta();
+                Console.WriteLine("Erro! A entrada deve ser um número entre 0 e 6.");
+
+                // Chama o método novamente (recursão)
+                return NumeroInteiro();
             }
-           
         }
     }
 }
