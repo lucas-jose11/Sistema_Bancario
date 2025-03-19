@@ -8,7 +8,7 @@ using System.Runtime.Intrinsics.Arm;
 
 namespace Sistema_Bancario
 {
-    public class Organizacao : Principal
+    public class Organizacao
     {
 
         //private List<ContaBancaria> listaDeContas = new List<ContaBancaria>();
@@ -16,7 +16,7 @@ namespace Sistema_Bancario
         private List<ContaCorrente> listaDeContasCorrente = new List<ContaCorrente>
         {
             new ContaCorrente(1, "Wellington", 48174938, 100.50),
-            new ContaCorrente(2, "Antônio", 22947281, 400) //unico problema : n aceita começar com 0
+            new ContaCorrente(2, "Antônio", 22947281, 400) //unico problema : n aceita começar com 0, o int n aceita
 
         };
 
