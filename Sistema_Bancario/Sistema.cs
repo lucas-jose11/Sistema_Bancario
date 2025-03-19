@@ -5,10 +5,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Text.RegularExpressions;
 using System.Runtime.Intrinsics.Arm;
+using System.Xml.Schema;
 
 namespace Sistema_Bancario
 {
-    public class Organizacao
+    public class Sistema
     {
 
         //private List<ContaBancaria> listaDeContas = new List<ContaBancaria>();
@@ -62,18 +63,40 @@ namespace Sistema_Bancario
                     break;
 
                 case 4:
-                    MostrarContasPoupancas(listaDeContasPoupanca); 
+                    MostrarContasPoupancas(listaDeContasPoupanca);
                     Console.WriteLine("Pressione ENTER para voltar ao Menu.");
                     Console.ReadLine();
                     Console.Clear();
                     break;
 
                 case 5:
+                    Console.WriteLine("Qual conta corrente dentre essas abaixo você quer acessar?");
+                    MostrarContasCorrentes(listaDeContasCorrente);
+                    Console.WriteLine("");
+                    int auxCorrente = EscolherNumeroEntre(1, listaDeContasCorrente.Count);
+                    Console.WriteLine("Acessando conta...");
+                    Console.WriteLine("Conta acessada!");
+                    Console.WriteLine("========================");
+                    EntrandoContaCorrente(listaDeContasCorrente, auxCorrente);
+
+
+
                     //falta acessar as contas e poder fazer os métodos
                     Console.Clear();
                     break;
 
                 case 6:
+                    Console.WriteLine("Qual conta poupança dentre essas abaixo você quer acessar?");
+                    MostrarContasCorrentes(listaDeContasCorrente);
+                    Console.WriteLine("");
+                    int auxPoupanca = EscolherNumeroEntre(1, listaDeContasCorrente.Count);
+                    Console.WriteLine("Acessando conta...");
+                    Console.WriteLine("Conta acessada!");
+                    Console.WriteLine("========================");
+                    EntrandoContaPoupanca(listaDeContasPoupanca, auxPoupanca);
+
+
+
                     //falta acessar as contas e poder fazer os métodos
                     Console.Clear();
                     break;
@@ -85,6 +108,63 @@ namespace Sistema_Bancario
 
             }
         }
+
+        public void EntrandoContaCorrente(List<ContaCorrente> contasCorrentes, int idConta) // passar id, pelo metodo Esoclehndo conta
+        {
+            //trazer como parametro a lista de contas correntes/poupança e o ID da conta que eu quero
+            //entrando nela, conseguir usar os metodos especial da classe e os metodos padrão da contabancaria
+
+            //métodos aqui
+
+            int op = -1;
+            while (op != 3)
+            {
+                ContaCorrente conta = contasCorrentes.First(x => x.Id == idConta);
+                Console.WriteLine($"Conta de {conta.Titular}, ID: {conta.Id}.");
+                Console.WriteLine($"Saldo atual: R${conta.Saldo}."); //como mostrar no tipo R$XX,XX?
+
+                Console.WriteLine("");
+                Console.WriteLine("O que deseja fazer nela?");
+                Console.WriteLine("[1] - Saque.");
+                Console.WriteLine("[2] - Depósito.");
+                Console.WriteLine("[3] - SAIR");
+                op = EscolherNumeroEntre(1, 3);
+
+                switch (op)
+                {
+                    case 1:
+                        //qnt quer sacar?
+                        //chamar o sacar()
+                        break;
+
+                    case 2:
+                        break;
+
+                    case 3:
+                        Console.Write("Saindo da conta...");
+                        break;
+
+                }
+            }
+            
+            
+
+            
+        }
+
+        public void FazendoAcoesNaContaCorrente(int op) //tem como juntar os dois metodos?
+        {
+            //aqui faz
+            //if 1 saquetaxado ou saque, 2 depoisto, etc
+        }
+
+        public void EntrandoContaPoupanca(List<ContaPoupanca> contasPoupancas, int idConta)
+        {
+            //trazer como parametro a lista de contas correntes/poupança e o ID da conta que eu quero
+            //entrando nela, conseguir usar os metodos especial da classe e os metodos padrão da contabancaria
+        }
+
+
 
         public void CriarContaCorrente()
         {
@@ -157,6 +237,8 @@ namespace Sistema_Bancario
 
         }
 
+
+
         public void MostrarContasCorrentes(List<ContaCorrente> contasCorrentes)
         {
             Console.WriteLine("CONTAS CORRENTES:");
@@ -180,6 +262,8 @@ namespace Sistema_Bancario
             }
         }
 
+
+
         public int EscolhendoContaCorrente()
         {
             //mandar o MostrarContas aq, e escolher uma
@@ -191,17 +275,31 @@ namespace Sistema_Bancario
             //mandar o MostrarContas aq, e escolher uma
             return 0; // retorna Id da conta
         }
-        
-        public void EntrandoContaCorrente() // passar id, pelo metodo Esoclehndo conta
-        {
-            //trazer como parametro a lista de contas correntes/poupança e o ID da conta que eu quero
-            //entrando nela, conseguir usar os metodos especial da classe e os metodos padrão da contabancaria
-        }
 
-        public void EntrandoContaPoupanca()
+
+
+
+
+
+
+        //=================================
+        //================================
+
+        static int EscolherNumeroEntre(int a, int b)
         {
-            //trazer como parametro a lista de contas correntes/poupança e o ID da conta que eu quero
-            //entrando nela, conseguir usar os metodos especial da classe e os metodos padrão da contabancaria
+            Console.WriteLine($"=================\nDigite uma opção válida, entre {a} e {b}:");
+            string entrada = Console.ReadLine();
+
+            // Verifica se a entrada é um número válido e está no intervalo a-b
+            if (int.TryParse(entrada, out int numero) && numero > (a - 1) && numero < (b + 1))
+            {
+                return numero; // Retorna o número válido
+            }
+            
+            Console.WriteLine($"Erro! A entrada deve ser um número entre {a} e {b}.");
+
+            // Chama o método novamente (recursão)
+            return EscolherNumeroEntre(a, b);
         }
     }
 }

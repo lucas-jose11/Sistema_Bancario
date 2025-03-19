@@ -6,7 +6,7 @@ namespace Sistema_Bancario
         static void Main(string[] args) //melhroar a página inicial
         {
 
-            Organizacao token = new Organizacao(); // precisa instanciar nesse caso
+            Sistema token = new Sistema(); // precisa instanciar nesse caso
             
             int aux = -1;
             while (aux != 0)
@@ -22,7 +22,7 @@ namespace Sistema_Bancario
                 Console.WriteLine("[6] - Acessar conta poupança");
                 Console.WriteLine("[0] - SAIR");
 
-                aux = NumeroInteiro();
+                aux = EscolherNumeroEntre(0, 6);
 
                 token.MenuBanco(aux);
 
@@ -32,23 +32,21 @@ namespace Sistema_Bancario
         }
 
 
-        static int NumeroInteiro()
+        static int EscolherNumeroEntre(int a, int b)
         {
-            Console.WriteLine("=================\nDigite uma opção válida (0 a 6):");
+            Console.WriteLine($"=================\nDigite uma opção válida, entre {a} e {b}:");
             string entrada = Console.ReadLine();
 
-            // Verifica se a entrada é um número válido e está no intervalo 0-6
-            if (int.TryParse(entrada, out int numero) && numero > -1 && numero < 7)
+            // Verifica se a entrada é um número válido e está no intervalo a-b
+            if (int.TryParse(entrada, out int numero) && numero > (a - 1) && numero < (b + 1))
             {
                 return numero; // Retorna o número válido
             }
-            else
-            {
-                Console.WriteLine("Erro! A entrada deve ser um número entre 0 e 6.");
 
-                // Chama o método novamente (recursão)
-                return NumeroInteiro();
-            }
+            Console.WriteLine($"Erro! A entrada deve ser um número entre {a} e {b}.");
+
+            // Chama o método novamente (recursão)
+            return EscolherNumeroEntre(a, b);
         }
     }
 }
