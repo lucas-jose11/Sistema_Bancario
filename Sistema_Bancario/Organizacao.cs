@@ -167,7 +167,7 @@ namespace Sistema_Bancario
                 Console.WriteLine("===============================================");
 
             }
-        }
+        } // como mostrar ambos os tipos de contas em apenas um metodo?
 
         public void MostrarContasPoupancas(List<ContaPoupanca> contasPoupanca)
         {
@@ -180,9 +180,28 @@ namespace Sistema_Bancario
             }
         }
 
-        public void DetalhesdaMinhaConta()
+        public int EscolhendoContaCorrente()
+        {
+            //mandar o MostrarContas aq, e escolher uma
+            return 0; // retorna Id da conta
+        }
+
+        public int EscolhendoContaPoupanca()//parametro o int que o metodo Esoclhendo deicidr
+        {
+            //mandar o MostrarContas aq, e escolher uma
+            return 0; // retorna Id da conta
+        }
+        
+        public void EntrandoContaCorrente() // passar id, pelo metodo Esoclehndo conta
         {
             //trazer como parametro a lista de contas correntes/poupança e o ID da conta que eu quero
+            //entrando nela, conseguir usar os metodos especial da classe e os metodos padrão da contabancaria
+        }
+
+        public void EntrandoContaPoupanca()
+        {
+            //trazer como parametro a lista de contas correntes/poupança e o ID da conta que eu quero
+            //entrando nela, conseguir usar os metodos especial da classe e os metodos padrão da contabancaria
         }
     }
 }
