@@ -48,7 +48,7 @@ namespace Sistema_Bancario
                 if (value > 0)
                     _saldo = value;
                 else
-                    throw new Exception("Precisamos ter um mínimo de 100 reais para abrirmos sua conta!!");
+                    throw new Exception("Precisamos ter um mínimo de 100 reais para abrirmos sua conta!!"); //pq se tentar sacar + doq pode cai aq?
             }
         }
 
@@ -68,7 +68,7 @@ namespace Sistema_Bancario
         {
             //reduz o saldo, mas impede o saque se n houver saldo suficiente
             if (valorParaSacar > _saldo)
-                Console.WriteLine("Impossível sacar pois o saldo disponível é menor do que a quantia que você quer sacar.");
+                Console.WriteLine($"Impossível sacar pois o saldo disponível (R${valorParaSacar}) é menor do que a quantia que você quer sacar (R${_saldo}).");
             else
             {
                 _saldo -= valorParaSacar;
