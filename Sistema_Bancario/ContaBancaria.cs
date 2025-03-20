@@ -1,20 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿
+using System.Globalization;
 
 namespace Sistema_Bancario
 {
     public class ContaBancaria
     {
 
-        private int _numeroConta;
+        private int _numeroConta; //atributos é maiusuclo, exceto private
 
         private string _titular;
 
         private double _saldo;
-
+        //se tiver protected, tipo TaxaSaque, q valia 5 no CC, tava encapsulada
+        //se portected, n daria pra acessar no Sistema cc.TaxaSaque, mas as filhas podem
 
         public string Titular
         {
@@ -30,7 +28,7 @@ namespace Sistema_Bancario
 
         public int NumeroConta
         {
-            get { return _numeroConta; }
+            get { return _numeroConta; }                    //get => _numeroConta;
             set
             {
                 if (value.ToString().Length == 8)
@@ -62,6 +60,7 @@ namespace Sistema_Bancario
         public void Depositar(double valorParaDepositar)
         {
             _saldo += valorParaDepositar;
+            ExibirSaldo();
         }
 
         public void Sacar(double valorParaSacar)
@@ -79,8 +78,7 @@ namespace Sistema_Bancario
 
         public void ExibirSaldo()
         {
-            //exibe o saldo atual
-            Console.WriteLine($"Saldo atual em sua conta: R${_saldo}.");
+            Console.WriteLine($"Saldo atual em sua conta: {_saldo.ToString("C2", new CultureInfo("pt-BR"))}.");
         }
 
     }

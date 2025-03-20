@@ -1,18 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿
 namespace Sistema_Bancario
 {
-    //herda da ContaBancaria
 
     public class ContaCorrente : ContaBancaria // Herda de ContaBancaria
     {
         private int _id;
 
-        // Construtor
+        // Construtor                                                                 e é o Super
         public ContaCorrente(int id, string titular, int numeroConta, double saldo) : base(titular, numeroConta, saldo) // Chama o construtor da classe pai
         {
             Id = id;
