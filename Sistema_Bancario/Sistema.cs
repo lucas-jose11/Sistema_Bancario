@@ -1,5 +1,4 @@
 ﻿using System.Globalization;
-using System.Security.Cryptography;
 
 namespace Sistema_Bancario
 {
@@ -10,7 +9,6 @@ namespace Sistema_Bancario
         {
             new ContaCorrente(1, "Wellington", 48174938, 100.50),
             new ContaCorrente(2, "Antônio", 22947281, 400)
-
         };
 
         private List<ContaPoupanca> listaDeContasPoupanca = new List<ContaPoupanca>
@@ -37,7 +35,6 @@ namespace Sistema_Bancario
                 Console.WriteLine("[0] - SAIR");
 
                 aux = EscolherNumeroEntre(0, 6);
-
                 MenuBanco(aux);
             }
         }
@@ -75,10 +72,20 @@ namespace Sistema_Bancario
                     break;
 
                 case 5:
+                    Console.WriteLine("Gostaria de continuar ou voltar ao Menu Principal? " +
+                        "Digite sim para voltar, ou qualquer outra coisa para continuar.");
+                    string resposta = Console.ReadLine();
+
+                    if (resposta.ToLower() == "s" || resposta.ToLower() == "sim")
+                    {
+                        Console.Clear();
+                        break;
+                    }
+
+                    Console.WriteLine("----------------------------------------------------------");
                     Console.WriteLine("Qual conta corrente dentre essas abaixo você quer acessar?");
                     MostrarContasCorrentes(listaDeContasCorrente);
                     
-
                     Console.WriteLine("");
                     
                     int auxCorrente = EscolherNumeroEntre(1, listaDeContasCorrente.Count);
@@ -91,6 +98,17 @@ namespace Sistema_Bancario
                     break;
 
                 case 6:
+                    Console.WriteLine("Gostaria de continuar ou voltar ao Menu Principal? " +
+                        "Digite sim para voltar, ou qualquer outra coisa para continuar.");
+                    string resposta_2 = Console.ReadLine();
+
+                    if (resposta_2.ToLower() == "s" || resposta_2.ToLower() == "sim")
+                    {
+                        Console.Clear();
+                        break;
+                    }
+
+                    Console.WriteLine("----------------------------------------------------------"); 
                     Console.WriteLine("Qual conta poupança dentre essas abaixo você quer acessar?");
                     MostrarContasPoupanca(listaDeContasPoupanca);
                     
@@ -132,9 +150,6 @@ namespace Sistema_Bancario
                 int id = listaDeContasCorrente.Count + 1;
 
                 ContaCorrente conta_nova = new ContaCorrente(id, nome, numero, saldo);
-                
-                //Console.WriteLine(conta_1.NumeroConta);
-                // se fosse static tinha que : List<ContaBancaria> listaDeContas = new List<ContaBancaria>();
                 listaDeContasCorrente.Add(conta_nova);
             }
             catch (Exception e)
@@ -167,9 +182,6 @@ namespace Sistema_Bancario
                 int id = listaDeContasPoupanca.Count + 1;
 
                 ContaPoupanca conta_nova = new ContaPoupanca(id, nome, numero, saldo);
-                
-                //Console.WriteLine(conta_1.NumeroConta);
-                // se fosse static tinha que : List<ContaBancaria> listaDeContas = new List<ContaBancaria>();
                 listaDeContasPoupanca.Add(conta_nova);
             }
             catch (Exception e)
@@ -222,25 +234,33 @@ namespace Sistema_Bancario
                 Console.WriteLine("[2] - Depósito.");
                 Console.WriteLine("[3] - SAIR");
                 op = EscolherNumeroEntre(1, 3);
+                Console.Clear();
 
                 switch (op)
                 {
                     case 1:
                         Console.WriteLine("Quanto você quer sacar?");
+                        conta.ExibirSaldo();
                         double valorPraSacar = double.Parse(Console.ReadLine());
                         
                         conta.SaqueTaxado(valorPraSacar);
+                        Console.WriteLine("");
+                        Console.WriteLine("---------------------");
                         break;
 
                     case 2:
                         Console.WriteLine("Quanto você quer depositar?");
+                        conta.ExibirSaldo();
                         double valorPraDepositar = double.Parse(Console.ReadLine());
 
                         conta.Depositar(valorPraDepositar);
+                        Console.WriteLine("");
+                        Console.WriteLine("---------------------");
                         break;
 
                     case 3:
                         Console.Write("Saindo da conta...");
+                        Thread.Sleep(1000);
                         break;
                 }
             }
@@ -261,33 +281,38 @@ namespace Sistema_Bancario
                 Console.WriteLine("[2] - Depósito.");
                 Console.WriteLine("[3] - SAIR");
                 op = EscolherNumeroEntre(1, 3);
+                Console.Clear();
 
                 switch (op)
                 {
                     case 1:
                         Console.WriteLine("Quanto você quer sacar?");
+                        conta.ExibirSaldo();
                         double valorPraSacar = double.Parse(Console.ReadLine());
 
                         conta.Sacar(valorPraSacar);
+                        Console.WriteLine("");
+                        Console.WriteLine("---------------------");
                         break;
 
                     case 2:
                         Console.WriteLine("Quanto você quer depositar?");
+                        conta.ExibirSaldo();
                         double valorPraDepositar = double.Parse(Console.ReadLine());
 
                         conta.DepositoComBonus(valorPraDepositar);
+                        Console.WriteLine("");
+                        Console.WriteLine("---------------------");
                         break;
 
                     case 3:
                         Console.Write("Saindo da conta...");
+                        Thread.Sleep(1000);
                         break;
                 }
             }
         }
 
-
-        //=================================
-        //================================
 
         static int EscolherNumeroEntre(int a, int b)
         {

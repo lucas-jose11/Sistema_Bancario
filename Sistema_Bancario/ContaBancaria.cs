@@ -1,18 +1,16 @@
-﻿
-using System.Globalization;
+﻿using System.Globalization;
 
 namespace Sistema_Bancario
 {
     public class ContaBancaria
     {
 
-        private int _numeroConta; //atributos é maiusuclo, exceto private
+        private int _numeroConta; 
 
         private string _titular;
 
         private double _saldo;
-        //se tiver protected, tipo TaxaSaque, q valia 5 no CC, tava encapsulada
-        //se portected, n daria pra acessar no Sistema cc.TaxaSaque, mas as filhas podem
+        
 
         public string Titular
         {
@@ -28,7 +26,7 @@ namespace Sistema_Bancario
 
         public int NumeroConta
         {
-            get { return _numeroConta; }                    //get => _numeroConta;
+            get { return _numeroConta; } 
             set
             {
                 if (value.ToString().Length == 8)
@@ -46,7 +44,7 @@ namespace Sistema_Bancario
                 if (value > 0)
                     _saldo = value;
                 else
-                    throw new Exception("Precisamos ter um mínimo de 100 reais para abrirmos sua conta!!"); //pq se tentar sacar + doq pode cai aq?
+                    throw new Exception("Precisamos ter um mínimo de 100 reais para abrirmos sua conta!!");
             }
         }
 
@@ -57,6 +55,7 @@ namespace Sistema_Bancario
             Saldo = saldoInicial;
         }
 
+
         public void Depositar(double valorParaDepositar)
         {
             _saldo += valorParaDepositar;
@@ -65,7 +64,6 @@ namespace Sistema_Bancario
 
         public void Sacar(double valorParaSacar)
         {
-            //reduz o saldo, mas impede o saque se n houver saldo suficiente
             if (valorParaSacar > _saldo)
                 Console.WriteLine($"Impossível sacar pois o saldo disponível (R${valorParaSacar}) é menor do que a quantia que você quer sacar (R${_saldo}).");
             else

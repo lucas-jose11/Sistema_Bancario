@@ -1,18 +1,17 @@
 ﻿
 namespace Sistema_Bancario
 {
-
-    public class ContaCorrente : ContaBancaria // Herda de ContaBancaria
+    public class ContaCorrente : ContaBancaria
     {
         private int _id;
 
-        // Construtor                                                                 e é o Super
         public ContaCorrente(int id, string titular, int numeroConta, double saldo) : base(titular, numeroConta, saldo) // Chama o construtor da classe pai
         {
             Id = id;
         }
 
-        public int Id // +algo aq?
+
+        public int Id
         {
             get { return _id; }
             set { _id = value; }
@@ -20,11 +19,10 @@ namespace Sistema_Bancario
 
         public void SaqueTaxado(double valorPraSacar)
         {
-            //cobrar uma taxa fixa de R$5,00 a cada saque
             if (valorPraSacar > Saldo)
             {
-                Console.WriteLine($"Impossível sacar, pois há não saldo suficiente para fazer o " +
-                    $"saque desejado de R${valorPraSacar}, pois o saldo atual é de R${Saldo}."); // colocar aqui pra mostrar casas decimais
+                Console.WriteLine($"Impossível sacar, pois há não saldo suficiente para fazer o saque " +
+                                  $"desejado de R${valorPraSacar}, pois o saldo atual é de R${Saldo}.");
             }
             else
             {
